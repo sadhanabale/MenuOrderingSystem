@@ -1,0 +1,18 @@
+{
+  "wsmenuitems": [
+    {
+      "code": "AB201",
+      "name": "pani puri",
+      "price": "20.5",
+      "description": "pani puri",
+      "id": 2
+    },
+    {
+      "code": "xdcm nm m",
+      "name": "xx",
+      "price": "xxx",
+      "description": "xxxx",
+      "id": 4
+    }
+  ]
+}
