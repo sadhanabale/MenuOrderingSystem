@@ -1,0 +1,22 @@
+<h2>Enter Customer Details</h2>
+
+
+<form name="userform" class="well">
+	<input name ="name" ng-model="user.name" ng-required="true" placeholder="Enter User Name"/>
+	<span ng-messages="userform.name.$error" ng-show="userform.name.$dirty"><b style="color:red;" ng-message="required">User name is required</b></span>
+	<br>
+	<input name="contactno" ng-model="user.contactno" placeholder="ENter contact number" ng-required="true" ng-pattern="/^[789]\d{9}$/">
+	<span ng-messages="userform.contactno.$error" ng-show="userform.name.$dirty"><b style="color:red;" ng-message="required">Contact Number is required</b><b style="color:red;" ng-message="pattern">Invalid Contact Number</b></span>
+	<br>
+	<select name="state" ng-model="user.state" ng-options="state.stateId as state.name for state in stateList" ng-required="true">
+		<option value="">Select</option>
+	</select>
+	<span ng-messages="userform.state.$error" ng-show="userform.state.$dirty"><b style="color:red;" ng-message="required">STate is required</b></span>
+	<br>
+	<select name="city" ng-model="user.city" ng-options="city.cityId as city.Name for city in citylist" ng-required="true">
+		<option value="">Select</option>
+	</select>
+	<br>
+	<br>
+	<button type="submit" class="btn btn-primary" ng-click="signUp()" ng-disabled="userform.$invalid">Submit</button>
+</form>

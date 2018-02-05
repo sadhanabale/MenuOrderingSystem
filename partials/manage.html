@@ -1,0 +1,32 @@
+<h3>Manage Menu Items</h3>
+
+<form class="well">
+	<input ng-model="newmenuitem.code" placeholder="Enter Item Code">
+	<input ng-model="newmenuitem.name" placeholder="Enter Item Name">
+	<input ng-model="newmenuitem.price" placeholder="Enter Item Price">
+	<input ng-model="newmenuitem.description" placeholder="Enter Item Description">
+	<button class="btn btn-primary glyphicon glyphicon-floppy-disk" ng-click="save()">Save</button>
+</form>
+<div class="well">
+	Find: <input ng-model="mySearch.price">
+</div>
+<table class="table table-bordered table-striped">
+    <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>price</th>
+            <th>Description</th>
+            <th>Action</th>
+    </tr>
+    <tr ng-repeat="item in itemsList | filter: mySearch | orderBy :'-name'">
+        <td>{{item.code}}</td>
+        <td>{{item.name|uppercase}}</td>
+        <td>{{item.price}}</td>
+        <td>{{item.description | truncate: 5}}</td>
+        <td>
+        <button class="btn btn-danger glyphicon glyphicon-trash" ng-click="remove($index, item.id)"></button>
+        <button class="btn btn-success glyphicon glyphicon-edit" ng-click="edit(item, $index)"></button>
+        </td>
+    </tr>
+</table>
+<button ng-csv="itemsList" filename="mymenuitems.csv">Export CSV</button>
